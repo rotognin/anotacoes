@@ -21,21 +21,6 @@ class UsuarioController extends Controller
         parent::view('usuario.lista', ['usuarios' => $usuarios->obter(), 'mensagem' => $mensagem]);
     }
 
-    public static function inicio(array $post, array $get, string $mensagem = '')
-    {
-        if (!Token::valido($post)){
-            parent::logout();
-            exit;
-        }
-
-        // Carregar as informações do usuário logado
-        
-
-        // ******************************************
-
-        parent::view('usuario.index', ['mensagem' => $mensagem]);
-    }
-
     /**
      * Criação de um novo usuário
      */

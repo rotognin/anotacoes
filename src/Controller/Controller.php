@@ -17,7 +17,7 @@ class Controller
         if (NIVEL[$login->nivel] == 'Administrador'){
             AdministracaoController::inicio($post, $get);
         } else {
-            UsuarioController::inicio($post, $get); // Fazer essa função
+            MovimentacaoController::inicio($post, $get); // Fazer essa função
         }
     }
 

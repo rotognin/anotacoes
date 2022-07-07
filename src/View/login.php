@@ -10,7 +10,7 @@
             <h3><span class="azul">Acesso ao sistema de anotações.</span></h3>
             <span><i><?php echo APP_VERSION; ?></i></span>
             <br>
-            <form method="post" action="<?php echo $rota('', 'login'); ?>">
+            <form method="post" action="<?php echo $rota('login'); ?>">
                 <div class="form-group">
                     <label for="login">&nbsp;<b>Login:</b> &nbsp;</label>
                     <input type="text" id="login" name="login" size="30px" required autofocus>
@@ -28,6 +28,6 @@
             <br>
         </div>
     </div>
-    <?php include ('./html/scriptsjs.php'); ?>
+    <?php include ('./html/js/scriptsjs.php'); ?>
 </body>
 </html>

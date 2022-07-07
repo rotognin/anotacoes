@@ -11,6 +11,6 @@
         <?php include('html/mensagem.php'); ?>
     </div>
 
-    <?php include 'html/scriptsjs.php'; ?>
+    <?php include 'html/js/scriptsjs.php'; ?>
 </body>
 </html>

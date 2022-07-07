@@ -49,7 +49,7 @@ class Controller
             }
         }
 
-        $rota = function(string $controlador = '', string $acao = ''){
+        $rota = function(string $acao = '', string $controlador = ''){
             $link = 'index.php?';
 
             if (!empty($controlador)){

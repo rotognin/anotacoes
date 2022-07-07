@@ -23,8 +23,6 @@ Sistema sendo desenvolvido em PHP 7.4+, usando a arquitetura MVC (POO), CoffeeCo
 
 Para rodar esse sistema localmente, é necessário: PHP 7.4+, MySQL, Composer, GIT (para clonar o repositório, caso queira).
 
-- Este projeto está rodando [neste link](https://rodrigotognin.com.br/anotacoes/). Usuário: "teste", senha: "123"
-
 ## Procedimentos para instalação local:
 
 - Baixe o projeto em uma pasta

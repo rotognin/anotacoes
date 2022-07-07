@@ -1,4 +1,4 @@
-<form class="col-12" method="post" action="index.php?control=usuario&action=<?php echo $acao; ?>">
+<form class="col-12" method="post" action="<?php echo $rota($acao, 'usuario'); ?>">
     <input type="hidden" name="_token" value="<?php echo $_SESSION['csrf']; ?>">
     
     <div class="form-group">

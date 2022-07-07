@@ -2,7 +2,7 @@
 
 namespace Src\Controller;
 
-use Src\Model\Funcoes\Usuarios;
+use Src\Model\Funcoes\Usuario;
 use Lib\Token;
 
 class UsuarioController extends Controller
@@ -12,7 +12,7 @@ class UsuarioController extends Controller
      */
     public static function usuarios(array $post, array $get, string $mensagem = '')
     {
-        $usuarios = new Usuarios();
+        $usuarios = new Usuario();
         if (!$usuarios->listar()){
             $mensagem = $usuarios->mensagem;
         }
@@ -64,7 +64,7 @@ class UsuarioController extends Controller
 
         $view = ($novo) ? 'novo' : 'alterar';
 
-        $usuario = new Usuarios();
+        $usuario = new Usuario();
         if (!$usuario->dados($post)){
             Token::criarCsrf();
             parent::view('usuario.' . $view, ['mensagem' => $usuario->mensagem, 'usuario' => $usuario->objeto()]);
@@ -84,7 +84,7 @@ class UsuarioController extends Controller
         Token::criarCsrf();
         
         $id = filter_var($post['usuario_id'], FILTER_VALIDATE_INT);
-        $usuario = new Usuarios();
+        $usuario = new Usuario();
         $usuario->carregar($id);
 
         parent::view('usuario.alterar', ['usuario' => $usuario->objeto(), 'mensagem' => $mensagem]);
@@ -109,7 +109,7 @@ class UsuarioController extends Controller
 
         $id = filter_var($post['usuario_id'], FILTER_VALIDATE_INT);
 
-        $usuario = new Usuarios();
+        $usuario = new Usuario();
         $usuario->carregar($id);
         $usuario->alterarStatus($status);
 

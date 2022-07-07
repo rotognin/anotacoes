@@ -10,7 +10,7 @@
     </div>
     
     <div class="container-fluid">
-        <a class="btn fundo-azul text-white" href="index.php?action=novo&control=usuario">Novo Usuário</a>
+        <a class="btn fundo-azul text-white" href="<?php echo $rota('novo', 'usuario'); ?>">Novo Usuário</a>
 
         <table class="table table-hover table-sm">
             <thead class="fundo-azul branco">
@@ -67,6 +67,6 @@
         </table>
     </div>
 
-    <?php include 'html/scriptsjs.php'; ?>
+    <?php include 'html/js/scriptsjs.php'; ?>
 </body>
 </html>

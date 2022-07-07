@@ -2,14 +2,14 @@
 
 namespace Src\Model\Funcoes;
 
-use Src\Model\Entidades\Usuario;
-use Lib\Verificacoes;
+use Src\Model\Entidades\Usuarios;
+use Lib\Funcoes;
 
-class Usuarios
+class Usuario
 {
     public string $mensagem;
     private array $usuarios;
-    private Usuario $usuario;
+    private Usuarios $usuario;
     private bool $novo;
 
     public function __construct()
@@ -28,7 +28,7 @@ class Usuarios
             $find = 'status = :status';
         }
 
-        $usuarios = (new Usuario())->find($find, $params)->fetch(true);
+        $usuarios = (new Usuarios())->find($find, $params)->fetch(true);
 
         if (!$usuarios){
             $this->mensagem = 'Nenhum usuário cadastrado.';
@@ -44,7 +44,7 @@ class Usuarios
      */
     public function carregar(int $id)
     {
-        $this->usuario = (new Usuario())->findById($id);
+        $this->usuario = (new Usuarios())->findById($id);
     }
 
     /**
@@ -103,12 +103,12 @@ class Usuarios
         if ($dados['id'] > 0){
             $this->carregar($dados['id']);
         } else {
-            $this->usuario = new Usuario();
+            $this->usuario = new Usuarios();
             $this->novo = true;
         }
 
-        $this->usuario->nome = Verificacoes::verificarString($dados['nome']);
-        $this->usuario->login = Verificacoes::verificarString($dados['login']);
+        $this->usuario->nome = Funcoes::verificarString($dados['nome']);
+        $this->usuario->login = Funcoes::verificarString($dados['login']);
 
         if ($dados['senha'] != ''){
             $this->usuario->senha = sha1($dados['senha']);

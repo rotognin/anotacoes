@@ -3,11 +3,11 @@
         <nav class="navbar navbar-expand-lg navbar-dark fundo-azul">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link text-white" href="<?php echo $route('inicio', 'administracao'); ?>">Início</a>
+                    <a class="nav-link text-white" href="<?php echo $rota('inicio', 'administracao'); ?>">Início</a>
                     <span class="nav-link text-white"><b>|</b></span>
-                    <a class="nav-link text-white" href="<?php echo $route('usuarios', 'usuario'); ?>">Usuários</a>
+                    <a class="nav-link text-white" href="<?php echo $rota('usuarios', 'usuario'); ?>">Usuários</a>
                     <span class="nav-link text-white"><b>|</b></span>
-                    <a class="nav-link text-white" href="<?php echo $route('logout'); ?>">Sair</a>
+                    <a class="nav-link text-white" href="<?php echo $rota('logout'); ?>">Sair</a>
                 </div>
             </div>
         </nav>

@@ -21,13 +21,10 @@
                 </div>
                 <input type="submit" value="Entrar" class="btn botao">
             </form>
-            <?php 
-                $regra = 'danger';
-                include_once ('./html/mensagem.php');
-            ?>
             <br>
+            <?php include_once ('./html/mensagem.php'); ?>
         </div>
     </div>
-    <?php include ('./html/js/scriptsjs.php'); ?>
+    <?php include_once ('./html/js/scriptsjs.php'); ?>
 </body>
 </html>

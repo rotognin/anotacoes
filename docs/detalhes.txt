@@ -1,0 +1,4 @@
+- Usar "created_at" e "updated_at" do ORM datalayer
+- Ordenar as colunas de listagem ao clicar nelas
+- Ver uma fonte bacana para o projeto
+- Pesquisar uma paleta de cores legais para padronização

@@ -1,0 +1,3 @@
+- Enviar anotações para outro usuário
+- Exportar anotações para o formato CSV
+- Criar uma forma de colorir as categorias

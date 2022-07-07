@@ -1,0 +1,28 @@
+{
+    "name": "rodrigo/anotacoes",
+    "description": "Anotações online",
+    "require": {
+        "coffeecode/datalayer": "1.1.*"
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/",
+            "Lib\\": "lib/"
+        },
+        "files": [
+            "src/config.php"
+        ],
+        "classmap": [
+            "src/"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Rodrigo Tognin"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor/"
+    }
+}

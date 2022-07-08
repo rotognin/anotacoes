@@ -1,7 +1,5 @@
 # Sistema de anotações
 
-<em>Projeto de estudo particular</em>
-
 Este sistema de anotações serve para guardar textos e notas online, separado por categorias. Cada usuário tem acesso às suas 
 anotações, que podem ser acessadas de qualquer computador e/ou smartphone.
 

@@ -1,3 +1,4 @@
+-- Active: 1657285035745@@127.0.0.1@3306@anotacoes_db
 CREATE TABLE `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(60) NOT NULL,
@@ -45,6 +46,6 @@ CREATE TABLE `textos` (
 
 /* Criação do usuário padrão */
 INSERT INTO `anotacoes_db`.`usuarios`
-(`nome`, `login`, `senha`, `nivel`, `status`)
+(`nome`, `login`, `senha`, `nivel`, `status`, `created_at`)
 VALUES
-('Administrador', 'admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, 0);
+('Administrador', 'admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, 0, CURRENT_TIMESTAMP);

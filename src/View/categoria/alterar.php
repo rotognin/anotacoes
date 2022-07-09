@@ -6,6 +6,7 @@
         <?php 
             $titulo = 'Alteração de Categoria';
             require_once 'html/movimentacao/topo.php';
+            require_once 'html/movimentacao/menu.php';
         ?>
 
         <br>

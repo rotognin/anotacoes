@@ -13,32 +13,13 @@ define("NIVEL", array(
     '2' => 'Usuário Comum'
 ));
 
-define ("STATUS", array(
+define("STATUS", array(
     '0' => 'Ativo',
-    '1' => 'Inativo',
-    '2' => 'Sob Consulta',
-    '3' => 'Bloqueado'
+    '1' => 'Inativo'
 ));
 
-define ("STATUS_MOVIMENTACAO", array(
-    '0' => 'Em aberto',
-    '1' => 'Finalizado',
-    '2' => 'Cancelado'
-));
-
-define("TIPO_PASSAGEM", array(
-    '1' => 'Pessoas e Veículos',
-    '2' => 'Pessoas apenas',
-    '3' => 'Veículos apenas'
-));
-
-define ("STATUS_ATIVO", 0);
-define ("STATUS_INATIVO", 1);
-define ("STATUS_CONSULTA", 2);
-define ("STATUS_BLOQUEADO", 3);
-
-define("TIPO_UNIDADE", array(
-    '1' => 'Matriz',
-    '2' => 'Filial',
-    '3' => 'Cooperado'
+define("PRIORIDADE", array(
+    '1' => 'Baixa',
+    '2' => 'Média',
+    '3' => 'Alta'
 ));

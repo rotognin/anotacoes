@@ -3,8 +3,11 @@
 <?php include 'html/head.php'; ?>
 <body>
     <div class="container-fluid">
-        <?php require_once 'html/movimentacao/topo.php'; ?>
-        <?php include('html/mensagem.php'); ?>
+        <?php 
+            $titulo = 'Sistema de anotações';
+            require_once 'html/movimentacao/topo.php';
+            include('html/mensagem.php'); 
+        ?>
 
         <div class="d-flex align-items-stretch">
             <div class="container">
@@ -14,7 +17,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="Nova Categoria" href="<?php echo $rota('novo', 'categoria'); ?>">
                         <span class="badge badge-primary">+</span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Listar Categorias" href="<?php echo $rota('lista', 'categoria'); ?>">
+                    <a data-toggle="tooltip" data-placement="top" title="Listar Categorias" href="<?php echo $rota('categorias', 'categoria'); ?>">
                         <span class="badge badge-primary">*</span>
                     </a>
                 </p>

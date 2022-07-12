@@ -8,3 +8,4 @@ docker-compose.yml
 Dockerfile
 .dockerignore
 db.php
+stopdocker.sh

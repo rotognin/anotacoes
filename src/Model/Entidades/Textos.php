@@ -8,6 +8,6 @@ class Textos extends DataLayer
 {
     public function __construct()
     {
-        parent::__construct('textos', ['usuario_id', 'categoria_id', 'texto', 'status', 'prioridade'], 'id', true);
+        parent::__construct('textos', ['usuario_id', 'categoria_id', 'texto'], 'id', true);
     }
 }

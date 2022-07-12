@@ -10,17 +10,23 @@
             <h3><span class="azul">Acesso ao sistema de anotações.</span></h3>
             <span><i>Versão: <?php echo APP_VERSION; ?></i></span>
             <br>
-            <form method="post" action="<?php echo $rota('login'); ?>">
-                <div class="form-group">
-                    <label for="login">&nbsp;<b>Login:</b> &nbsp;</label>
-                    <input type="text" id="login" name="login" size="30px" required autofocus>
+            <div class="card">
+                <div class="card-body">
+                    
+                    <form method="post" action="<?php echo $rota('login'); ?>">
+                        <div class="form-group">
+                            <label for="login">&nbsp;<b>Login:</b> &nbsp;</label>
+                            <input type="text" id="login" name="login" size="30px" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha"><b>Senha:</b> &nbsp;</label>
+                            <input type="password" id="senha" name="senha" size="30px" required>
+                        </div>
+                        <input type="submit" value="Entrar" class="btn botao">
+                    </form>
+                    
                 </div>
-                <div class="form-group">
-                    <label for="senha"><b>Senha:</b> &nbsp;</label>
-                    <input type="password" id="senha" name="senha" size="30px" required>
-                </div>
-                <input type="submit" value="Entrar" class="btn botao">
-            </form>
+            </div>
             <br>
             <?php include_once ('./html/mensagem.php'); ?>
         </div>

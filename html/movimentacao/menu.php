@@ -5,6 +5,8 @@
             <span class="nav-link text-white"><b>|</b></span>
             <a class="nav-link text-white" href="<?php echo $rota('categorias', 'categoria'); ?>"><b>Categorias</b></a>
             <span class="nav-link text-white"><b>|</b></span>
+            <a class="nav-link text-white" href="<?php echo $rota('textos', 'texto'); ?>"><b>Notas</b></a>
+            <span class="nav-link text-white"><b>|</b></span>
             <a class="nav-link text-white" href="<?php echo $rota('logout'); ?>"><b>Sair</b></a>
         </div>
     </div>

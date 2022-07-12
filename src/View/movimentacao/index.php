@@ -13,7 +13,7 @@
             <div class="container">
                 <p class="h3">
                     Categorias &nbsp;&nbsp;&nbsp;
-                    <span class="badge badge-primary"><?php echo "5"; ?></span>
+                    <span class="badge badge-primary"><?php echo (is_array($categorias)) ? count($categorias) : 0; ?></span>
                     <a title="Nova Categoria" href="<?php echo $rota('novo', 'categoria'); ?>">
                         <span class="badge badge-primary">+</span>
                     </a>
@@ -35,7 +35,7 @@
                             $id++;
 
                             echo '<p id="categoria_' . $id . '" data-cat-id="' . $categoria->id . '" onclick="selecionarCategoria(' . $id . ');" class="selecao">' . $categoria->nome;
-                                echo '<span class="badge badge-primary badge-pill float-right">13</span>';
+                                echo '<span class="badge badge-primary badge-pill float-right">' . $categoria->qtd_textos . '</span>';
                             echo '</p>';
                         }
 
@@ -51,10 +51,10 @@
                 <p class="h2">
                     Notas &nbsp;&nbsp;&nbsp;
                     <span class="badge badge-primary"><?php echo "0"; ?></span>
-                    <a data-toggle="tooltip" data-placement="top" title="Nova Nota" href="<?php echo $rota('novo', 'anotacao'); ?>">
+                    <a data-toggle="tooltip" data-placement="top" title="Nova Nota" href="<?php echo $rota('novo', 'texto'); ?>">
                         <span class="badge badge-primary">+</span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Listar Notas" href="<?php echo $rota('lista', 'anotacao'); ?>">
+                    <a data-toggle="tooltip" data-placement="top" title="Listar Notas" href="<?php echo $rota('textos', 'texto'); ?>">
                         <span class="badge badge-primary">*</span>
                     </a>
                 </p>

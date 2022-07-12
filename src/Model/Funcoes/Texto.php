@@ -18,17 +18,22 @@ class Texto
         $this->novo = false;
     }
 
-    public function listar(int $categoria_id, bool $todos = true)
+    public function listar(int $categoria_id = 0, bool $todos = true)
     {
-        $params = 'categoria_id=' . $categoria_id . '&usuario_id=' . $_SESSION['usuID'];
-        $find = 'categoria_id = :categoria_id AND usuario_id = :usuario_id';
+        $params = '&usuario_id=' . $_SESSION['usuID'];
+        $find = 'usuario_id = :usuario_id';
+
+        if ($categoria_id > 0){
+            $params .= '&categoria_id=' . $categoria_id;
+            $find .= ' AND categoria_id = :categoria_id';
+        }
 
         if (!$todos){
             $params .= '&status=0';
             $find .= ' AND status = :status';
         }
 
-        $textos = (new Categorias())->find($find, $params)->order("prioridade DESC")->fetch(true);
+        $textos = (new Textos())->find($find, $params)->order("prioridade DESC")->fetch(true);
 
         if (!$textos){
             $this->mensagem = 'Nenhuma nota cadastrada.';

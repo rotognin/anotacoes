@@ -3,6 +3,7 @@
 namespace Src\Model\Funcoes;
 
 use Src\Model\Entidades\Categorias;
+use Src\Model\Entidades\Textos;
 use Src\Model\Funcoes\Texto;
 use Lib\Funcoes;
 
@@ -52,7 +53,11 @@ class Categoria
         }
 
         foreach($this->categorias as $categoria){
-            //$qtdNotas = (new Texto())->find() ... continuar
+            $params = 'usuario_id=' . $_SESSION['usuID'] . '&categoria_id=' . $categoria->id;
+            $find = 'usuario_id = :usuario_id AND categoria_id = :categoria_id';
+            $qtdNotas = (new Textos())->find($find, $params)->count();
+
+            $categoria->qtd_textos = ($qtdNotas) ? $qtdNotas : 0;
         }
     }
 

@@ -11,6 +11,7 @@ class MovimentacaoController extends Controller
         // Carregar as categorias do usuário logado
         $categorias = new Categoria();
         $categorias->listar(false);
+        $categorias->quantidadeNotas();
 
         parent::view('movimentacao.index', ['categorias' => $categorias->obter(), 'mensagem' => $mensagem]);
     }

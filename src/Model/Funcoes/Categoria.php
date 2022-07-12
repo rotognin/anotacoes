@@ -3,6 +3,7 @@
 namespace Src\Model\Funcoes;
 
 use Src\Model\Entidades\Categorias;
+use Src\Model\Funcoes\Texto;
 use Lib\Funcoes;
 
 class Categoria
@@ -24,8 +25,8 @@ class Categoria
         $find = 'usuario_id = :usuario_id';
 
         if (!$todos){
-            $params = '&status=0';
-            $find = ' AND status = :status';
+            $params .= '&status=0';
+            $find .= ' AND status = :status';
         }
 
         $categorias = (new Categorias())->find($find, $params)->order("prioridade DESC")->fetch(true);
@@ -42,6 +43,17 @@ class Categoria
     public function carregar(int $id)
     {
         $this->categoria = (new Categorias())->findById($id);
+    }
+
+    public function quantidadeNotas()
+    {
+        if (!is_array($this->categorias)){
+            return false;
+        }
+
+        foreach($this->categorias as $categoria){
+            //$qtdNotas = (new Texto())->find() ... continuar
+        }
     }
 
     public function obter()

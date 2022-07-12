@@ -24,26 +24,25 @@
                 <hr>
 
                 <?php
-                echo $_SESSION['usuID'];
-                $qtd_categorias = (is_array($categorias)) ? count($categorias) : 0;
+                    $qtd_categorias = (is_array($categorias)) ? count($categorias) : 0;
 
-                if ($qtd_categorias > 0){
-                    echo '<div class="container barra-rolagem" id="div_categorias" data-qtd-categorias="' . $qtd_categorias . '">';
+                    if ($qtd_categorias > 0){
+                        echo '<div class="container barra-rolagem" id="div_categorias" data-qtd-categorias="' . $qtd_categorias . '">';
 
-                    $id = 0;
+                        $id = 0;
 
-                    foreach($categorias as $categoria){
-                        $id++;
+                        foreach($categorias as $categoria){
+                            $id++;
 
-                        echo '<p id="categoria_' . $id . '" data-cat-id="' . $categoria->id . '" onclick="selecionarCategoria(' . $id . ');" class="selecao">' . $categoria->nome;
-                            echo '<span class="badge badge-primary badge-pill float-right">13</span>';
-                        echo '</p>';
+                            echo '<p id="categoria_' . $id . '" data-cat-id="' . $categoria->id . '" onclick="selecionarCategoria(' . $id . ');" class="selecao">' . $categoria->nome;
+                                echo '<span class="badge badge-primary badge-pill float-right">13</span>';
+                            echo '</p>';
+                        }
+
+                        echo '</div>';
+                    } else {
+                        echo '<p><i>Nenhuma categoria criada...</i></p>';
                     }
-
-                    echo '</div>';
-                } else {
-                    echo '<p><i>Nenhuma categoria criada...</i></p>';
-                }
                 ?>
 
             </div>
@@ -60,12 +59,13 @@
                     </a>
                 </p>
                 <hr>
-                <div class="container barra-rolagem" id="div_notas" data-qtd-notas="5">
-                    <p id="nota_1" data-nota-id="1" onclick="selecionarNota(1);" class="selecao">Anotações Gerais</p>
+
+                <div class="container barra-rolagem" id="div_notas" data-qtd-notas="0">
+                    <!--p id="nota_1" data-nota-id="1" onclick="selecionarNota(1);" class="selecao">Anotações Gerais</p>
                     <p id="nota_2" data-nota-id="2" onclick="selecionarNota(2);" class="selecao">Finanças</p>
                     <p id="nota_3" data-nota-id="3" onclick="selecionarNota(3);" class="selecao">Senhas e Acessos</p>
                     <p id="nota_4" data-nota-id="4" onclick="selecionarNota(4);" class="selecao">Programação</p>
-                    <p id="nota_5" data-nota-id="5" onclick="selecionarNota(5);" class="selecao">Documentos</p>
+                    <p id="nota_5" data-nota-id="5" onclick="selecionarNota(5);" class="selecao">Documentos</p-->
                 </div>
             </div>
 

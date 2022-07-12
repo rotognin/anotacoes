@@ -8,6 +8,6 @@ class Categorias extends DataLayer
 {
     public function __construct()
     {
-        parent::__construct('categorias', ['usuario_id', 'nome', 'status', 'prioridade'], 'id', true);
+        parent::__construct('categorias', ['usuario_id', 'nome'], 'id', true);
     }
 }

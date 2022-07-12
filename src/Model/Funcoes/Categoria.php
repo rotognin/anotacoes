@@ -28,7 +28,7 @@ class Categoria
             $find = ' AND status = :status';
         }
 
-        $categorias = (new Categorias())->find($find, $params)->fetch(true);
+        $categorias = (new Categorias())->find($find, $params)->order("prioridade DESC")->fetch(true);
 
         if (!$categorias){
             $this->mensagem = 'Nenhuma categoria cadastrada.';

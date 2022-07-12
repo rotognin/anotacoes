@@ -1,6 +1,8 @@
 <?php
 
-include_once 'db.php';
+if (file_exists('db.php')){
+    include_once 'db.php';
+}
 
 define("DATA_LAYER_CONFIG", [
     "driver" => "mysql",

@@ -20,3 +20,5 @@ a.acesso:hover { color:#cc9900; }
 .sem-borda { border:0px; }
 .selecao { margin:0px; padding:5px; cursor:pointer; }
 .selecao:hover { background-color:cornflowerblue; }
+.selecao-click { color: white; background-color:rgb(144, 170, 218); font-weight: bold; }
+.barra-rolagem { height: 170px; overflow-y: scroll; }

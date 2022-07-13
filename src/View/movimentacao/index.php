@@ -9,6 +9,8 @@
             include('html/mensagem.php'); 
         ?>
 
+        <input type="hidden" id="_token" name="_token" value="<?php echo $_SESSION['csrf']; ?>">
+
         <div class="d-flex align-items-stretch">
             <div class="container">
                 <p class="h3">

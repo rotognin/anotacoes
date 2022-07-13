@@ -3,6 +3,7 @@
 namespace Src\Controller;
 
 use Src\Model\Funcoes\Categoria;
+use Lib\Token;
 
 class MovimentacaoController extends Controller
 {
@@ -13,6 +14,7 @@ class MovimentacaoController extends Controller
         $categorias->listar(false);
         $categorias->quantidadeNotas();
 
+        Token::criarCsrf();
         parent::view('movimentacao.index', ['categorias' => $categorias->obter(), 'mensagem' => $mensagem]);
     }
 }

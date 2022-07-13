@@ -20,7 +20,7 @@ class Categoria
         $this->novo = false;
     }
 
-    public function listar(bool $todos = true)
+    public function listar(bool $todos = true, bool $ordenar_prioridade = true)
     {
         $params = 'usuario_id=' . $_SESSION['usuID'];
         $find = 'usuario_id = :usuario_id';
@@ -30,7 +30,9 @@ class Categoria
             $find .= ' AND status = :status';
         }
 
-        $categorias = (new Categorias())->find($find, $params)->order("prioridade DESC")->fetch(true);
+        $ordem = ($ordenar_prioridade) ? 'prioridade DESC' : 'nome ASC';
+
+        $categorias = (new Categorias())->find($find, $params)->order($ordem)->fetch(true);
 
         if (!$categorias){
             $this->mensagem = 'Nenhuma categoria cadastrada.';

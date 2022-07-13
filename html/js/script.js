@@ -6,12 +6,32 @@ function selecionarCategoria(id){
 
     // Pegar o ID da categoria que irá ser carregada
     var categoria_id = parseInt($("#categoria_" + id).data("cat-id"));
+    var token = $("#_token").val();
 
     // Requisição para o servidor
+    if (categoria_id > 0){
+        var token = $("#_token").val();
+        $.get("index.php?control=texto&action=buscar&categoria_id=" + categoria_id + '&_token=' + token, function(data, status){
+            if (status === "success"){
+                if (data == ''){
+                    alert("Categoria sem notas.");
+                } else {
+                    montarNotas(data);
+                }
+            } else {
+                alert("Não foi possível obter a lista das notas.");
+            }
+        });
+    }
+}
 
+function montarNotas(notas)
+{
+    zerarNotas();
 
-
-
+    // Ler o Json que voltar da consulta
+    //console.log(notas);
+    $("#div_notas").html(notas);
 }
 
 function zerarNotas(){

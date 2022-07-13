@@ -34,8 +34,8 @@
                             echo '<td>' . $texto->id . '</td>';
                             echo '<td>' . $texto->descricao . '</td>';
                             echo '<td>' . $texto->categoria->nome . '</td>';
-                            echo '<td>' . PRIORIDADE[$categoria->prioridade] . '</td>';
-                            echo '<td>' . STATUS[$categoria->status] . '</td>';
+                            echo '<td>' . PRIORIDADE[$texto->categoria->prioridade] . '</td>';
+                            echo '<td>' . STATUS[$texto->categoria->status] . '</td>';
 
                             echo '<td>';
                                 echo '<form method="post" action="' . $rota('alterar', 'texto') . '">';

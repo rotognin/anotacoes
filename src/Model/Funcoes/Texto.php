@@ -3,6 +3,7 @@
 namespace Src\Model\Funcoes;
 
 use Src\Model\Entidades\Textos;
+use Src\Model\Funcoes\Categoria;
 use Lib\Funcoes;
 
 class Texto
@@ -47,6 +48,17 @@ class Texto
     public function carregar(int $id)
     {
         $this->texto = (new Textos())->findById($id);
+    }
+
+    public function buscarCategorias()
+    {
+        foreach($this->textos as $texto){
+            $categoria = new Categoria();
+            $categoria->carregar($texto->categoria_id);
+            $texto->categoria = $categoria->objeto();
+
+            unset($categoria);
+        }
     }
 
     public function obter()
@@ -126,5 +138,17 @@ class Texto
         $this->gravar();
     }
 
+    public function montarLista()
+    {
+        $html = '';
+        $texto_seq = 0;
 
+        foreach($this->textos as $texto){
+            $texto_seq++;
+
+            $html .= '<p id="nota_' . $texto_seq . '" data-nota-id="' . $texto->id . '" onclick="selecionarNota(' . $texto_seq . ');" class="selecao">' . $texto->descricao . '</p>';
+        }
+
+        return $html;
+    }
 }

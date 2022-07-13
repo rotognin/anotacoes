@@ -3,14 +3,18 @@
 namespace Src\Controller;
 
 use Src\Model\Funcoes\Texto;
+use Src\Model\Funcoes\Categoria;
 use Lib\Token;
 
 class TextoController extends Controller
 {
     public static function novo()
     {
+        $categorias = new Categoria();
+        $categorias->listar(false, false);
+
         Token::criarCsrf();
-        parent::view('texto.novo', []);
+        parent::view('texto.novo', ['categorias' => $categorias->obter()]);
     }
 
     public static function textos(array $post, array $get, string $mensagem = '')
@@ -25,6 +29,10 @@ class TextoController extends Controller
 
         if (!$textos->listar($categoria_id, true)){
             $mensagem = $textos->mensagem;
+        }
+
+        if (is_array($textos->obter())){
+            $textos->buscarCategorias();
         }
 
         Token::criarCsrf();
@@ -52,8 +60,15 @@ class TextoController extends Controller
 
         $texto = new Texto();
         if (!$texto->dados($post)){
+            $categorias = new Categoria();
+            $categorias->listar(false, false);
+
             Token::criarCsrf();
-            parent::view('texto.' . $view, ['mensagem' => $texto->mensagem, 'texto' => $texto->objeto()]);
+            parent::view('texto.' . $view, 
+                ['mensagem' => $texto->mensagem, 
+                 'texto' => $texto->objeto(), 
+                 'categorias' => $categorias->obter()]
+            );
             exit;
         }
 
@@ -73,7 +88,14 @@ class TextoController extends Controller
         $texto = new Texto();
         $texto->carregar($id);
 
-        parent::view('texto.alterar', ['texto' => $texto->objeto(), 'mensagem' => $mensagem]);
+        $categorias = new Categoria();
+        $categorias->listar(false, false);
+
+        parent::view('texto.alterar', 
+            ['texto' => $texto->objeto(), 
+             'mensagem' => $mensagem, 
+             'categorias' => $categorias->obter()]
+        );
     }
 
     public static function ativar(array $post, array $get)
@@ -100,5 +122,25 @@ class TextoController extends Controller
         $texto->alterarStatus($status);
 
         self::textos([], []);
+    }
+
+    public static function buscar(array $post, array $get)
+    {
+        if (!Token::valido($get)){
+            echo 'nada...';
+            exit;
+        }       
+
+        $categoria_id = filter_var($get['categoria_id'], FILTER_VALIDATE_INT);
+
+        if (!$categoria_id || $categoria_id == 0){
+            echo 'nada...';
+            exit;
+        }
+
+        $textos = new Texto();
+        $textos->listar($categoria_id, false);
+
+        echo $textos->montarLista();
     }
 }

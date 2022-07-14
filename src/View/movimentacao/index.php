@@ -52,7 +52,7 @@
             <div class="container" >
                 <p class="h2">
                     Notas &nbsp;&nbsp;&nbsp;
-                    <span class="badge badge-primary"><?php echo "0"; ?></span>
+                    <span id="qtd_notas" class="badge badge-primary"><?php echo "0"; ?></span>
                     <a data-toggle="tooltip" data-placement="top" title="Nova Nota" href="<?php echo $rota('novo', 'texto'); ?>">
                         <span class="badge badge-primary">+</span>
                     </a>
@@ -63,11 +63,6 @@
                 <hr>
 
                 <div class="container barra-rolagem" id="div_notas" data-qtd-notas="0">
-                    <!--p id="nota_1" data-nota-id="1" onclick="selecionarNota(1);" class="selecao">Anotações Gerais</p>
-                    <p id="nota_2" data-nota-id="2" onclick="selecionarNota(2);" class="selecao">Finanças</p>
-                    <p id="nota_3" data-nota-id="3" onclick="selecionarNota(3);" class="selecao">Senhas e Acessos</p>
-                    <p id="nota_4" data-nota-id="4" onclick="selecionarNota(4);" class="selecao">Programação</p>
-                    <p id="nota_5" data-nota-id="5" onclick="selecionarNota(5);" class="selecao">Documentos</p-->
                 </div>
             </div>
 
@@ -81,6 +76,6 @@
     </div>
 
     <?php include_once 'html/js/scriptsjs.php'; ?>
-    <script src="html/js/script.js"></script>
+    <script src="html/js/script.min.js"></script>
 </body>
 </html>

@@ -107,8 +107,8 @@ class Texto
 
         $this->texto->usuario_id = $_SESSION['usuID'];
         $this->texto->categoria_id = filter_var($dados['categoria_id'], FILTER_VALIDATE_INT);
-        $this->texto->descricao = Funcoes::verificarString($dados['descricao']);
-        $this->texto->texto = Funcoes::verificarString($dados['texto']);
+        $this->texto->descricao = Funcoes::verificarString($dados['descricao'], false);
+        $this->texto->texto = Funcoes::verificarString($dados['texto'], false);
         $this->texto->prioridade = filter_var($dados['prioridade'], FILTER_VALIDATE_INT);
 
         if ($this->novo){

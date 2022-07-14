@@ -124,7 +124,7 @@ class TextoController extends Controller
         self::textos([], []);
     }
 
-    public static function buscar(array $post, array $get)
+    public static function notas(array $post, array $get)
     {
         if (!Token::valido($get)){
             echo 'nada...';
@@ -139,8 +139,42 @@ class TextoController extends Controller
         }
 
         $textos = new Texto();
-        $textos->listar($categoria_id, false);
+        if (!$textos->listar($categoria_id, false)){
+            echo '<i>' . $textos->mensagem . '</i>';
+        } else {
+            echo $textos->montarLista();
+        }
+    }
 
-        echo $textos->montarLista();
+    public static function nota(array $post, array $get)
+    {
+        if (!Token::valido($get)){
+            echo 'nada...';
+            exit;
+        }
+
+        $nota_id = filter_var($get['nota_id'], FILTER_VALIDATE_INT);
+
+        if (!$nota_id || $nota_id == 0){
+            echo 'nada...';
+            exit;
+        }
+
+        $texto = new Texto();
+        $texto->carregar($nota_id);
+
+        $nota = $texto->objeto();
+
+        if (!$nota){
+            echo 'Texto não carregado...';
+            exit;
+        }
+
+        if ($nota->usuario_id != $_SESSION['usuID']){
+            echo 'Texto incorreto...';
+            exit;
+        }
+
+        echo nl2br($nota->texto);
     }
 }

@@ -6,14 +6,13 @@ function selecionarCategoria(id){
 
     // Pegar o ID da categoria que irá ser carregada
     var categoria_id = parseInt($("#categoria_" + id).data("cat-id"));
-    var token = $("#_token").val();
 
     // Requisição para o servidor
     if (categoria_id > 0){
         var token = $("#_token").val();
-        $.get("index.php?control=texto&action=buscar&categoria_id=" + categoria_id + '&_token=' + token, function(data, status){
+        $.get("index.php?control=texto&action=notas&categoria_id=" + categoria_id + '&_token=' + token, function(data, status){
             if (status === "success"){
-                if (data == ''){
+                if (data === ''){
                     alert("Categoria sem notas.");
                 } else {
                     montarNotas(data);
@@ -28,14 +27,21 @@ function selecionarCategoria(id){
 function montarNotas(notas)
 {
     zerarNotas();
-
-    // Ler o Json que voltar da consulta
-    //console.log(notas);
+    limparTexto();
     $("#div_notas").html(notas);
+
+    contarNotas();
+}
+
+function contarNotas()
+{
+    var qtd = parseInt($("#div_notas > p").length);
+    $("#qtd_notas").text(qtd);
+    $("#div_notas").data("qtd-notas", qtd);
 }
 
 function zerarNotas(){
-    
+    $("#qtd_notas").text("0");
 }
 
 function limparCategorias()
@@ -59,10 +65,20 @@ function selecionarNota(id)
     var nota_id = parseInt($("#nota_" + id).data("nota-id"));
 
     // Requisição para o servidor
-
-
-
-    $("#texto").text("Esse texto é bacana rapaz!");
+    if (nota_id > 0){
+        var token = $("#_token").val();
+        $.get("index.php?control=texto&action=nota&nota_id=" + nota_id + '&_token=' + token, function(data, status){
+            if (status === "success"){
+                if (data === ''){
+                    alert("Anotação não carregada.");
+                } else {
+                    montarTexto(data);
+                }
+            } else {
+                alert("Não foi possível obter o texto");
+            }
+        });
+    }
 }
 
 function limparNotas()
@@ -79,4 +95,10 @@ function limparNotas()
 function limparTexto()
 {
     $("#texto").text("");
+}
+
+function montarTexto(texto)
+{
+    limparTexto();
+    $("#texto").html(texto);
 }

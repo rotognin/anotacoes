@@ -11,8 +11,9 @@ class MovimentacaoController extends Controller
     {
         // Carregar as categorias do usuário logado
         $categorias = new Categoria();
-        $categorias->listar(false);
-        $categorias->quantidadeNotas();
+        if ($categorias->listar(false)){
+            $categorias->quantidadeNotas();
+        }
 
         Token::criarCsrf();
         parent::view('movimentacao.index', ['categorias' => $categorias->obter(), 'mensagem' => $mensagem]);

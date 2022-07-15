@@ -4,11 +4,15 @@ namespace Lib;
 
 class Funcoes
 {
-    public static function verificarString(string $texto) {
-        $texto = preg_replace("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/i", "", $texto);
+    public static function verificarString(string $texto, bool $completo = true) {
+        if ($completo){
+            $texto = preg_replace("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/i", "", $texto);
+            $texto = strip_tags($texto);
+        }
+
         $texto = trim($texto);
-        $texto = strip_tags($texto);
         $texto = addslashes($texto);
+        $texto = htmlentities($texto, ENT_QUOTES);
         return $texto;
     }
 

@@ -9,12 +9,12 @@
             require_once 'html/movimentacao/menu.php';
         ?>
 
-        <br>
         <?php include_once 'html/mensagem.php'; ?>
         <?php 
-            $acao = 'gravar';
+            $acao = 'atualizar';
             require('formulario.php'); 
         ?>
+        <br>
     </div>
 
     <?php include 'html/js/scriptsjs.php'; ?>

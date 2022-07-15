@@ -20,6 +20,7 @@
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Prioridade</th>
+                    <th>Notas</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
@@ -35,7 +36,16 @@
                             echo '<td>' . $categoria->nome . '</td>';
                             echo '<td>' . $categoria->descricao . '</td>';
                             echo '<td>' . PRIORIDADE[$categoria->prioridade] . '</td>';
-                            echo '<td>' . STATUS[$categoria->status] . '</td>';
+                            echo '<td>' . $categoria->qtd_textos . '</td>';
+
+                            echo '<td>';
+                                echo '<form method="post" action="index.php?control=categoria&action=' . $acao . '">';
+                                    echo '<input type="hidden" name="_token" value="' . $_SESSION['csrf'] . '">';
+                                    echo '<input type="hidden" name="categoria_id" value="' . $categoria->id . '">';
+                                    echo STATUS[$categoria->status] . '&nbsp;&nbsp;&nbsp;';
+                                    echo '<input type="submit" style="margin-left: 10px" value="' . ucfirst($acao) . '" class="btn botao btn-sm">';
+                                echo '</form>';
+                            echo '</td>';
                             
                             echo '<td>';
                                 echo '<form method="post" action="index.php?control=categoria&action=alterar">';
@@ -48,7 +58,7 @@
                     }
                 } else {
                     echo '<tr>';
-                        echo '<td colspan="6"><i>Nenhuma categoria cadastrada...</i></td>';
+                        echo '<td colspan="7"><i>Nenhuma categoria cadastrada...</i></td>';
                     echo '</tr>';
                 }
             ?>

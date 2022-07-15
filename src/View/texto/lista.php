@@ -29,13 +29,22 @@
                 if ($textos){
                     foreach($textos as $texto){
                         $acao = (STATUS[$texto->status] == 'Ativo') ? 'inativar' : 'ativar';
+                        $categoria_inativa = (STATUS[$texto->categoria->status] == 'Ativo') ? '' : ' (<i><b>Inativa</b></i>)';
 
                         echo '<tr>';
                             echo '<td>' . $texto->id . '</td>';
                             echo '<td>' . $texto->descricao . '</td>';
-                            echo '<td>' . $texto->categoria->nome . '</td>';
-                            echo '<td>' . PRIORIDADE[$texto->categoria->prioridade] . '</td>';
-                            echo '<td>' . STATUS[$texto->categoria->status] . '</td>';
+                            echo '<td>' . $texto->categoria->nome . $categoria_inativa . '</td>';
+                            echo '<td>' . PRIORIDADE[$texto->prioridade] . '</td>';
+
+                            echo '<td>';
+                                echo '<form method="post" action="index.php?control=texto&action=' . $acao . '">';
+                                    echo '<input type="hidden" name="_token" value="' . $_SESSION['csrf'] . '">';
+                                    echo '<input type="hidden" name="texto_id" value="' . $texto->id . '">';
+                                    echo STATUS[$texto->status] . '&nbsp;&nbsp;&nbsp;';
+                                    echo '<input type="submit" style="margin-left: 10px" value="' . ucfirst($acao) . '" class="btn botao btn-sm">';
+                                echo '</form>';
+                            echo '</td>';
 
                             echo '<td>';
                                 echo '<form method="post" action="' . $rota('alterar', 'texto') . '">';

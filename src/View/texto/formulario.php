@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
         <label for="texto" style="margin:0px"><b>Texto: &nbsp;</b></label><br>
-        <textarea id="texto" name="texto" rows="10" cols="80"><?php echo ($texto->texto ?? ''); ?></textarea>
+        <textarea id="texto" name="texto" rows="5" cols="80"><?php echo ($texto->texto ?? ''); ?></textarea>
     </div>
 
     <div class="form-group">

@@ -18,6 +18,8 @@ class CategoriaController extends Controller
         $categorias = new Categoria();
         if (!$categorias->listar()){
             $mensagem = $categorias->mensagem;
+        } else {
+            $categorias->quantidadeNotas();
         }
 
         Token::criarCsrf();

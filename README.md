@@ -6,6 +6,11 @@ ser acessadas facilmente, separando os textos em categorias e definindo priorida
 
 <em>Projeto sendo desenvolvido como estudo</em>
 
+### Este projeto está hospedado
+
+Para acessar o projeto, visite [este link](https://rodrigotognin.com.br/anotacoes). 
+O usuário é <em>convidado</em> e a senha é <em>c0nv1d4d0</em>
+
 A ideia desse projeto surgiu quando eu estava usando outro computador para fazer testes com Linux e precisava compartilhar alguns links 
 e textos entre eles. Com esse sistema, eu poderei realizar o login com meu usuário nos dois computadores e compartilhar informações entre eles.
 

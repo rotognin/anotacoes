@@ -1,16 +1,12 @@
 <?php
 
-if (file_exists('db.php')){
-    include_once 'db.php';
-}
-
 define("DATA_LAYER_CONFIG", [
     "driver" => "mysql",
-    "host" => $db_host ?? "localhost",
+    "host" => (getenv('DB_C_HOST')) ? getenv('DB_C_HOST') : "localhost",
     "port" => "3306",
     "dbname" => "anotacoes_db",
-    "username" => $db_user ?? "root",
-    "passwd" => $db_pass ?? "",
+    "username" => (getenv('DB_C_USER')) ? getenv('DB_C_USER') : "root",
+    "passwd" => (getenv('DB_C_PASS')) ? (getenv('DB_C_PASS')) : "",
     "options" => [
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
